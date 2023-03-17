@@ -13,6 +13,13 @@ public interface Showable {
         }
         return strLum;
     }
+    public static String printLum(Video img) {
+        String strLum = "";
+        for (int f = 0; f < img.getLuminosita(); f++) {
+            strLum += "*";
+        }
+        return strLum;
+    }
 
     }
 
