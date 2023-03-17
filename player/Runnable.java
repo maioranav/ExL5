@@ -36,6 +36,7 @@ public class Runnable {
                     System.out.print("Inserisci volume:");
                     tempVol = scan.nextInt();
                 }
+               scan.nextLine();
             } else {
                System.exit(0);
            }
