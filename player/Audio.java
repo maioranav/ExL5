@@ -14,6 +14,11 @@ public class Audio extends MediaElement implements Playable {
         this.duration = duration;
     }
 
+    public Audio(String title, int duration, int vol){
+        this(title, duration);
+        this.volume = vol;
+    }
+
     public void abbassaVolume() {
         if (this.volume > 0) this.volume--;
         System.out.println("Volume New = " + this.volume);

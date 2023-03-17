@@ -20,6 +20,10 @@ public class Video extends MediaElement implements Playable, Showable {
         this.duration = dur;
         this.lum = lum;
     }
+    public Video(String title, int dur, int lum, int vol) {
+        this(title, dur, lum);
+        this.volume = vol;
+    }
 
     @Override
     public void abbassaVolume() {
@@ -56,19 +60,6 @@ public class Video extends MediaElement implements Playable, Showable {
     @Override
     public int getLuminosita() {
         return lum;
-    }
-
-    public static void play(Video vid) {
-        for (int i = 0; i < vid.getDuration(); i++) {
-            String toPrint = vid.getType() + ": " + vid.getTitle() + " | D: " + vid.getDuration() + " | V: ";
-            for(int f = 0; f < vid.getVolume(); f++) {
-                toPrint += "!";
-            }
-            toPrint += " | L: " + Showable.printLum(vid);;
-            System.out.println(toPrint);
-        }
-
-
     }
 
     public String toString() {
