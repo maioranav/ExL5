@@ -5,8 +5,12 @@ public class Audio extends MediaElement implements Playable {
     private int duration = 5;
     private int volume = 4;
 
-    public Audio(String title, int duration){
+    public Audio(String title){
         super(title, ElType.AUDIO);
+    }
+
+    public Audio(String title, int duration){
+        this(title);
         this.duration = duration;
     }
 
