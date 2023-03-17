@@ -20,7 +20,7 @@ public class Runnable {
             System.out.println("\n > NUOVO FILE *** \n");
             System.out.print("Inserisci titolo: ");
             tempName = scan.nextLine();
-            System.out.print("Inserisci tipo: \n 1- IMAGE, 2-VIDEO, 3-AUDIO 0-QUIT");
+            System.out.println("Inserisci tipo: \n 1- IMAGE, 2-VIDEO, 3-AUDIO 0-QUIT");
             tempType = scan.nextInt();
            if (tempType <= 3 && tempType >= 0) {
                 if (tempType == 0) {
@@ -39,8 +39,6 @@ public class Runnable {
             } else {
                System.exit(0);
            }
-
-            System.out.println("\n");
 
             switch (tempType) {
                 case 1 -> media.add(new Image(tempName, tempLum));
