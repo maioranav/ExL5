@@ -8,6 +8,10 @@ public class Image extends MediaElement implements Showable{
         super(title, ElType.IMAGE);
     }
 
+    public Image(String title, int lum) {
+        this(title);
+        this.lum = lum;
+    }
 
     @Override
     public void abbassaLuminosita() {
