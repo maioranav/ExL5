@@ -22,19 +22,23 @@ public class Runnable {
             tempName = scan.nextLine();
             System.out.print("Inserisci tipo: \n 1- IMAGE, 2-VIDEO, 3-AUDIO 0-QUIT");
             tempType = scan.nextInt();
-            if (tempType == 0) {
-                System.exit(0);
-            }
-            if (tempType == 1 || tempType == 2) {
-                System.out.print("Inserisci luminosità da 0 a 5:");
-                tempLum = scan.nextInt();
-            }
-            if (tempType == 2 || tempType == 3) {
-                System.out.print("Inserisci durata:");
-                tempDuration = scan.nextInt();
-                System.out.print("Inserisci volume:");
-                tempVol = scan.nextInt();
-            }
+           if (tempType <= 3 && tempType >= 0) {
+                if (tempType == 0) {
+                    System.exit(0);
+                }
+                if (tempType == 1 || tempType == 2) {
+                    System.out.print("Inserisci luminosità da 0 a 5:");
+                    tempLum = scan.nextInt();
+                }
+                if (tempType == 2 || tempType == 3) {
+                    System.out.print("Inserisci durata:");
+                    tempDuration = scan.nextInt();
+                    System.out.print("Inserisci volume:");
+                    tempVol = scan.nextInt();
+                }
+            } else {
+               System.exit(0);
+           }
 
             System.out.println("\n");
 
@@ -51,17 +55,24 @@ public class Runnable {
         }
 
 
-        System.out.println("\n *** INIZIO A RIPRODURRE I CONTENUTI IN ORDINE *** \n");
-        
+       // System.out.println("\n *** INIZIO A RIPRODURRE I CONTENUTI IN ORDINE *** \n");
+        int scelta = 0;
+        while (true) {
+            System.out.println("\n *** SCEGLI COSA RIPRODURRE (Hai 5 Elementi) 0 per uscire *** \n");
+            scelta = scan.nextInt();
 
-        for (int i = 0; i < media.size() ; i++) {
-            switch (media.get(i).getType()) {
-                case AUDIO -> Playable.play((Audio) media.get(i));
-                case VIDEO -> Playable.play((Video) media.get(i));
-                case IMAGE -> Image.show((Image) media.get(i));
-            }
-        }
+if (scelta > 0 && scelta <= 5) {
+    switch (media.get(scelta-1).getType()) {
+        case AUDIO -> Playable.play((Audio) media.get(scelta-1));
+        case VIDEO -> Playable.play((Video) media.get(scelta-1));
+        case IMAGE -> Image.show((Image) media.get(scelta-1));
+    }} else {
+        System.out.println("\n *** Grazie per aver partecipato! ***");
+        System.out.println("\n *** Made with Love by Vincenzo Maiorana ***");
+        System.exit(0);
+    }
+}        }
 
     }
 
-}
+
