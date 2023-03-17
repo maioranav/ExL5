@@ -14,8 +14,17 @@ public interface Playable {
             }
             System.out.println(toPrint);
         }
+    }
 
-
+    public static void play(Video vid) {
+        for (int i = 0; i < vid.getDuration(); i++) {
+            String toPrint = vid.getType() + ": " + vid.getTitle() + " | D: " + vid.getDuration() + " | V: ";
+            for(int f = 0; f < vid.getVolume(); f++) {
+                toPrint += "!";
+            }
+            toPrint += " | L: " + Showable.printLum(vid);;
+            System.out.println(toPrint);
+        }
     }
 
 }
