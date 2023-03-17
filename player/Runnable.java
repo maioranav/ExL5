@@ -61,11 +61,16 @@ public class Runnable {
             scelta = scan.nextInt();
 
 if (scelta > 0 && scelta <= 5) {
-    switch (media.get(scelta-1).getType()) {
-        case AUDIO -> Playable.play((Audio) media.get(scelta-1));
-        case VIDEO -> Playable.play((Video) media.get(scelta-1));
-        case IMAGE -> Image.show((Image) media.get(scelta-1));
-    }} else {
+    if (media.get(scelta-1) instanceof Playable) {
+        switch (media.get(scelta-1).getType()) {
+            case AUDIO -> Playable.play((Audio) media.get(scelta - 1));
+            case VIDEO -> Playable.play((Video) media.get(scelta - 1));
+        }
+    } else {
+        Image.show((Image) media.get(scelta-1));
+    }
+    } else {
+
         System.out.println("\n *** Grazie per aver partecipato! ***");
         System.out.println("\n *** Made with Love by Vincenzo Maiorana ***");
         System.exit(0);
